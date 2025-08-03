@@ -349,12 +349,15 @@ export class MemStorage implements IStorage {
   }
 }
 
-import { db } from "./db";
-import { eq, and, like, desc, sql } from "drizzle-orm";
-import connectPg from "connect-pg-simple";
+// Database imports commented out for local development
+// import { db } from "./db";
+// import { eq, and, like, desc, sql } from "drizzle-orm";
+// import connectPg from "connect-pg-simple";
 
-const PostgresSessionStore = connectPg(session);
+// const PostgresSessionStore = connectPg(session);
 
+// DatabaseStorage class commented out for local development
+/*
 export class DatabaseStorage implements IStorage {
   sessionStore: session.SessionStore;
 
@@ -363,13 +366,22 @@ export class DatabaseStorage implements IStorage {
       throw new Error("DATABASE_URL is required for DatabaseStorage");
     }
     
-    this.sessionStore = new PostgresSessionStore({ 
-      conObject: {
-        connectionString: process.env.DATABASE_URL
-      }, 
-      createTableIfMissing: true 
-    });
+    try {
+      this.sessionStore = new PostgresSessionStore({ 
+        conObject: {
+          connectionString: process.env.DATABASE_URL
+        }, 
+        createTableIfMissing: true 
+      });
+    } catch (error) {
+      console.warn("Failed to initialize database session store:", error);
+      // Fall back to memory store
+      this.sessionStore = new MemoryStore({
+        checkPeriod: 86400000,
+      });
+    }
   }
+*/
 
   // User operations
   async getUser(id: number): Promise<User | undefined> {
@@ -613,5 +625,5 @@ export class DatabaseStorage implements IStorage {
   }
 }
 
-// Using DatabaseStorage now that we have a valid DATABASE_URL
-export const storage = new DatabaseStorage();
+// For now, always use MemStorage for local development
+export const storage = new MemStorage();

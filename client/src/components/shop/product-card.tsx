@@ -22,7 +22,7 @@ export default function ProductCard({ product }: ProductCardProps) {
 
   return (
     <Link href={`/product/${product.id}`}>
-      <Card className="group relative bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-lg transition-shadow duration-300 cursor-pointer">
+      <Card className="group relative rounded-lg shadow-sm overflow-hidden hover:shadow-lg transition-shadow duration-300 cursor-pointer bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
         <div className="aspect-w-3 aspect-h-4 bg-gray-200 group-hover:opacity-75">
           <img 
             src={product.imageUrl}
@@ -33,7 +33,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         <CardContent className="p-4">
           <div className="flex justify-between items-start">
             <div>
-              <h3 className="text-lg font-medium text-gray-900">{product.name}</h3>
+              <h3 className="text-lg font-medium text-gray-900 dark:text-white">{product.name}</h3>
               <p className="mt-1 text-sm text-gray-500">
                 {product.description.length > 60 
                   ? `${product.description.substring(0, 60)}...` 
@@ -46,7 +46,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           </div>
           <div className="mt-3 flex justify-between items-center">
             <div>
-              <p className="text-lg font-medium text-gray-900">${product.price.toFixed(2)}</p>
+              <p className="text-lg font-medium text-gray-900 dark:text-white">${product.price.toFixed(2)}</p>
               <div className="flex mt-1">
                 <Star className="h-4 w-4 text-yellow-400 fill-current" />
                 <Star className="h-4 w-4 text-yellow-400 fill-current" />

@@ -16,6 +16,7 @@ import { ProtectedRoute } from "./lib/protected-route";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 import CartSidebar from "@/components/shop/cart-sidebar";
+import { ThemeProvider } from "./hooks/use-theme";
 
 function Router() {
   return (
@@ -36,17 +37,19 @@ function Router() {
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <div className="min-h-screen flex flex-col">
-        <Navbar />
-        <main className="flex-grow">
-          <Router />
-        </main>
-        <Footer />
-        <CartSidebar />
-        <Toaster />
-      </div>
-    </QueryClientProvider>
+    <ThemeProvider>
+      <QueryClientProvider client={queryClient}>
+        <div className="min-h-screen flex flex-col">
+          <Navbar />
+          <main className="flex-grow">
+            <Router />
+          </main>
+          <Footer />
+          <CartSidebar />
+          <Toaster />
+        </div>
+      </QueryClientProvider>
+    </ThemeProvider>
   );
 }
 

@@ -120,7 +120,7 @@ export default function ShopPage() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="flex flex-col md:flex-row justify-between mb-8">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">
+          <h1 className="text-3xl font-bold text-gray-650">
             {selectedCategory ? selectedCategory : "All Products"}
           </h1>
           <p className="mt-1 text-sm text-gray-500">

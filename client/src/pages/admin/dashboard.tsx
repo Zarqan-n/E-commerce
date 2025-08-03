@@ -18,15 +18,15 @@ export default function AdminDashboard() {
   }
 
   return (
-    <div className="flex min-h-screen bg-gray-100">
+    <div className="flex min-h-screen bg-gray/650">
       <AdminSidebar />
       
       {/* Main content */}
       <div className="flex-1 overflow-auto">
         <div className="p-6">
           <div className="mb-8">
-            <h1 className="text-2xl font-semibold text-gray-900">Dashboard Overview</h1>
-            <p className="text-gray-600">Welcome to your store management dashboard. Here's a summary of your business performance.</p>
+            <h1 className="text-2xl font-semibold text-gray-650">Dashboard Overview</h1>
+            <p className="text-gray-500">Welcome to your store management dashboard. Here's a summary of your business performance.</p>
           </div>
 
           {/* Stats Cards */}

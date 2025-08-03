@@ -70,24 +70,10 @@ const paymentFormSchema = z.object({
   walletType: z.enum(["paypal", "applepay", "amazonpay"]).optional(),
 });
 
-// Combine both schemas with conditional validation
+// Combine both schemas
 const checkoutSchema = z.object({
   shipping: shippingFormSchema,
   payment: paymentFormSchema,
-}).refine(data => {
-  if (data.payment.paymentMethod === 'card') {
-    return !!data.payment.cardNumber && !!data.payment.cardName && !!data.payment.expiryDate && !!data.payment.cvv;
-  }
-  if (data.payment.paymentMethod === 'upi') {
-    return !!data.payment.upiId;
-  }
-  if (data.payment.paymentMethod === 'wallet') {
-    return !!data.payment.walletType;
-  }
-  return true;
-}, {
-  message: "Please complete all payment fields",
-  path: ["payment"],
 });
 
 type CheckoutFormValues = z.infer<typeof checkoutSchema>;
@@ -195,57 +181,13 @@ export default function CheckoutPage() {
 
   // Handle form submission for payment step
   const onPaymentSubmit = (data: CheckoutFormValues) => {
-    // Make sure we have complete data before submitting
-    if (!data?.payment?.paymentMethod) {
-      toast({
-        title: "Payment method required",
-        description: "Please select a payment method to continue",
-        variant: "destructive",
-      });
-      return;
-    }
-    
-    // Validate payment method specific fields
-    let isValid = true;
-    if (data.payment.paymentMethod === 'card') {
-      if (!data.payment.cardNumber || !data.payment.cardName || !data.payment.expiryDate || !data.payment.cvv) {
-        toast({
-          title: "Incomplete card details",
-          description: "Please fill in all card information fields",
-          variant: "destructive",
-        });
-        isValid = false;
-      }
-    } else if (data.payment.paymentMethod === 'upi') {
-      if (!data.payment.upiId) {
-        toast({
-          title: "UPI ID required",
-          description: "Please enter your UPI ID",
-          variant: "destructive",
-        });
-        isValid = false;
-      }
-    } else if (data.payment.paymentMethod === 'wallet') {
-      if (!data.payment.walletType) {
-        toast({
-          title: "Wallet selection required",
-          description: "Please select a wallet type",
-          variant: "destructive",
-        });
-        isValid = false;
-      }
-    }
-    
-    if (!isValid) return;
+    console.log("Payment form submitted:", data);
     
     // Set confirmation step first to show the processing UI
     setActiveStep("confirmation");
     
-    // Submit the form data to create an order with a slight delay
-    // to allow the confirmation UI to render
-    setTimeout(() => {
-      placeOrderMutation.mutate(data);
-    }, 500);
+    // Submit the form data to create an order
+    placeOrderMutation.mutate(data);
   };
 
   // If no items in cart, redirect to shop
@@ -254,7 +196,7 @@ export default function CheckoutPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <Card>
           <CardContent className="p-12 text-center">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl font-bold text-gray-650 mb-4">
               Your Cart is Empty
             </h2>
             <p className="text-gray-500 mb-6">
@@ -271,7 +213,7 @@ export default function CheckoutPage() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <h1 className="text-3xl font-bold text-gray-900 mb-8">Checkout</h1>
+      <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-8">Checkout</h1>
       
       {orderComplete ? (
         // Order Confirmation
@@ -280,7 +222,7 @@ export default function CheckoutPage() {
             <div className="mb-6 flex justify-center">
               <CheckCircle className="h-16 w-16 text-green-500" />
             </div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
+            <h2 className="text-2xl font-bold text-gray-650 mb-4">
               Thank You for Your Order!
             </h2>
             <p className="text-gray-600 mb-2">
@@ -335,7 +277,7 @@ export default function CheckoutPage() {
                             <FormItem>
                               <FormLabel>Full Name</FormLabel>
                               <FormControl>
-                                <Input placeholder="John Doe" {...field} />
+                                <Input placeholder="Rahul Mishra" {...field} />
                               </FormControl>
                               <FormMessage />
                             </FormItem>
@@ -364,7 +306,7 @@ export default function CheckoutPage() {
                               <FormItem>
                                 <FormLabel>City</FormLabel>
                                 <FormControl>
-                                  <Input placeholder="New York" {...field} />
+                                  <Input placeholder="Kolkata" {...field} />
                                 </FormControl>
                                 <FormMessage />
                               </FormItem>
@@ -378,7 +320,7 @@ export default function CheckoutPage() {
                               <FormItem>
                                 <FormLabel>State/Province</FormLabel>
                                 <FormControl>
-                                  <Input placeholder="NY" {...field} />
+                                  <Input placeholder="WB" {...field} />
                                 </FormControl>
                                 <FormMessage />
                               </FormItem>
@@ -408,7 +350,7 @@ export default function CheckoutPage() {
                               <FormItem>
                                 <FormLabel>Country</FormLabel>
                                 <FormControl>
-                                  <Input placeholder="United States" {...field} />
+                                  <Input placeholder="India" {...field} />
                                 </FormControl>
                                 <FormMessage />
                               </FormItem>
@@ -423,7 +365,7 @@ export default function CheckoutPage() {
                             <FormItem>
                               <FormLabel>Phone Number</FormLabel>
                               <FormControl>
-                                <Input placeholder="+1 (555) 123-4567" {...field} />
+                                <Input placeholder="+91" {...field} />
                               </FormControl>
                               <FormMessage />
                             </FormItem>
@@ -685,16 +627,8 @@ export default function CheckoutPage() {
                           <Button 
                             type="submit" 
                             className="flex-1"
-                            disabled={placeOrderMutation.isPending}
                           >
-                            {placeOrderMutation.isPending ? (
-                              <>
-                                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                                Processing...
-                              </>
-                            ) : (
-                              "Place Order"
-                            )}
+                            Place Order
                           </Button>
                         </div>
                       </form>
@@ -776,7 +710,7 @@ export default function CheckoutPage() {
                             </div>
                             <div className="ml-4 flex flex-1 flex-col">
                               <div>
-                                <div className="flex justify-between text-base font-medium text-gray-900">
+                                <div className="flex justify-between text-base font-medium text-gray-900 dark:text-white">
                                   <h3 className="text-sm">{item.product.name}</h3>
                                   <p className="ml-4 text-sm">${(item.product.price * item.quantity).toFixed(2)}</p>
                                 </div>
@@ -815,7 +749,7 @@ export default function CheckoutPage() {
                 </div>
                 
                 {/* Shipping Method */}
-                <div className="bg-gray-50 p-4 rounded-lg">
+                <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
                   <h3 className="font-medium mb-2">Shipping Method</h3>
                   <div className="flex justify-between text-sm">
                     <span>Standard Shipping</span>
@@ -841,3 +775,4 @@ export default function CheckoutPage() {
     </div>
   );
 }
+                       

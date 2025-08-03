@@ -42,7 +42,7 @@ export default function DashboardStats() {
       value: "$24,567.80",
       change: 7.2,
       icon: DollarSign,
-      iconBgColor: "bg-primary",
+      iconBgColor: "bg-secondary",
     },
     {
       title: "Total Orders",
@@ -63,7 +63,7 @@ export default function DashboardStats() {
       value: "3.6%",
       change: -0.5,
       icon: TrendingUp,
-      iconBgColor: "bg-success",
+      iconBgColor: "bg-secondary",
     }
   ];
 
@@ -74,8 +74,8 @@ export default function DashboardStats() {
           <CardContent className="p-5">
             <div className="flex justify-between">
               <div>
-                <h3 className="text-base font-normal text-gray-500">{stat.title}</h3>
-                <p className="text-2xl font-bold text-gray-900">{stat.value}</p>
+                <h3 className="text-base font-normal text-gray-650">{stat.title}</h3>
+                <p className="text-2xl font-bold text-gray-650">{stat.value}</p>
               </div>
               <div className={`h-12 w-12 rounded-full ${stat.iconBgColor} bg-opacity-10 flex items-center justify-center`}>
                 <stat.icon className={`${stat.iconBgColor} text-xl`} />
@@ -91,7 +91,7 @@ export default function DashboardStats() {
                   <ArrowDown className="h-4 w-4 mr-1" /> {Math.abs(stat.change)}%
                 </span>
               )}
-              <span className="text-gray-500 ml-2">from last month</span>
+              <span className="text-gray-650 ml-2">from last month</span>
             </div>
           </CardContent>
         </Card>

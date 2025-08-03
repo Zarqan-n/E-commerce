@@ -92,7 +92,7 @@ export default function AuthPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen flex items-center justify-center bg-gray-650 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl w-full flex">
         {/* Left side - Auth forms */}
         <div className="w-full md:w-1/2 pr-0 md:pr-8">
@@ -173,7 +173,7 @@ export default function AuthPage() {
                         <span className="w-full border-t border-gray-300"></span>
                       </div>
                       <div className="relative flex justify-center text-sm">
-                        <span className="px-2 bg-white text-gray-500">Or continue with</span>
+                        <span className="px-2 bg-secondary rounded text-gray-650">Or continue with</span>
                       </div>
                     </div>
                     
@@ -297,7 +297,7 @@ export default function AuthPage() {
                         <span className="w-full border-t border-gray-300"></span>
                       </div>
                       <div className="relative flex justify-center text-sm">
-                        <span className="px-2 bg-white text-gray-500">Or continue with</span>
+                        <span className="px-2 bg-secondary rounded text-gray-650">Or continue with</span>
                       </div>
                     </div>
                     

@@ -98,23 +98,23 @@ export default function ProductPage() {
         <ol className="flex items-center text-sm">
           <li>
             <Link href="/">
-              <a className="text-gray-500 hover:text-gray-700">Home</a>
+              <a className="text-gray-650 hover:text-gray-700">Home</a>
             </Link>
           </li>
           <ChevronRight className="h-4 w-4 mx-2 text-gray-400" />
           <li>
             <Link href="/shop">
-              <a className="text-gray-500 hover:text-gray-700">Shop</a>
+              <a className="text-gray-650 hover:text-gray-700">Shop</a>
             </Link>
           </li>
           <ChevronRight className="h-4 w-4 mx-2 text-gray-400" />
           <li>
             <Link href={`/shop?category=${encodeURIComponent(product.category)}`}>
-              <a className="text-gray-500 hover:text-gray-700">{product.category}</a>
+              <a className="text-gray-650 hover:text-gray-700">{product.category}</a>
             </Link>
           </li>
           <ChevronRight className="h-4 w-4 mx-2 text-gray-400" />
-          <li className="text-gray-900 font-medium truncate max-w-xs">
+          <li className="text-gray-650 font-medium truncate max-w-xs">
             {product.name}
           </li>
         </ol>
@@ -134,7 +134,7 @@ export default function ProductPage() {
 
         {/* Product Details */}
         <div className="md:w-1/2">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">{product.name}</h1>
+          <h1 className="text-3xl font-bold text-gray-650 mb-2">{product.name}</h1>
           
           <div className="flex items-center gap-4 mb-4">
             <div className="flex">
@@ -149,17 +149,17 @@ export default function ProductPage() {
             <span className="text-sm text-gray-500">SKU: {product.sku}</span>
           </div>
           
-          <div className="text-2xl font-bold text-gray-900 mb-6">
+          <div className="text-2xl font-bold text-gray-650 mb-6">
             ${product.price.toFixed(2)}
           </div>
           
           <div className="mb-8">
-            <p className="text-gray-700">{product.description}</p>
+            <p className="text-gray-650">{product.description}</p>
           </div>
           
           {/* Quantity Selector */}
           <div className="flex items-center space-x-4 mb-6">
-            <span className="text-gray-700">Quantity:</span>
+            <span className="text-gray-500">Quantity:</span>
             <div className="flex items-center border border-gray-300 rounded-md">
               <Button
                 variant="ghost"
@@ -226,7 +226,7 @@ export default function ProductPage() {
               <div className="space-y-4">
                 <div>
                   <h4 className="font-medium">Product Highlights:</h4>
-                  <ul className="list-disc pl-5 text-gray-700 mt-2 space-y-1">
+                  <ul className="list-disc pl-5 text-gray-650 mt-2 space-y-1">
                     <li>Premium quality materials</li>
                     <li>Ergonomic design for comfort</li>
                     <li>Long-lasting durability</li>
@@ -236,11 +236,11 @@ export default function ProductPage() {
                 <div>
                   <h4 className="font-medium">Technical Specifications:</h4>
                   <div className="grid grid-cols-2 gap-2 mt-2">
-                    <span className="text-gray-500">Brand:</span>
+                    <span className="text-gray-650">Brand:</span>
                     <span>ShopElite Premium</span>
-                    <span className="text-gray-500">Model:</span>
+                    <span className="text-gray-650">Model:</span>
                     <span>{product.sku}</span>
-                    <span className="text-gray-500">Category:</span>
+                    <span className="text-gray-650">Category:</span>
                     <span>{product.category}</span>
                   </div>
                 </div>
@@ -248,7 +248,7 @@ export default function ProductPage() {
             </TabsContent>
             <TabsContent value="shipping" className="p-4">
               <div className="space-y-4">
-                <p className="text-gray-700">
+                <p className="text-gray-500">
                   Free standard shipping on all orders over $50. Delivery typically takes 3-5 business days.
                 </p>
                 <div>
@@ -268,7 +268,7 @@ export default function ProductPage() {
                     </li>
                   </ul>
                 </div>
-                <p className="text-gray-700">
+                <p className="text-gray-500">
                   All items can be returned within 30 days of delivery if unused and in original packaging.
                 </p>
               </div>
@@ -347,7 +347,7 @@ export default function ProductPage() {
 
       {/* Related Products */}
       <div className="mt-16">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">You Might Also Like</h2>
+        <h2 className="text-2xl font-bold text-gray-650 mb-6">You Might Also Like</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* This would typically be populated with related products by category */}
           {/* For now, we'll show a placeholder message */}

@@ -31,14 +31,14 @@ export default function HomePage() {
   return (
     <div>
       {/* Hero Section */}
-      <div className="bg-white">
+      <div className="bg-grey">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center py-12 md:py-16">
             <div className="md:w-1/2 mb-8 md:mb-0 md:pr-8">
-              <h1 className="text-4xl font-extrabold text-gray-900 tracking-tight sm:text-5xl">
+              <h1 className="text-4xl font-extrabold text-gray-650 tracking-tight sm:text-5xl">
                 Discover Unique Products For Your Lifestyle
               </h1>
-              <p className="mt-4 text-xl text-gray-500">
+              <p className="mt-4 text-xl text-gray-650">
                 Shop the latest trends with confidence and enjoy our premium shopping experience.
               </p>
               <div className="mt-8 flex space-x-4">
@@ -64,13 +64,13 @@ export default function HomePage() {
       </div>
 
       {/* Featured Products */}
-      <div id="featured" className="bg-gray-50 py-12">
+      <div id="featured" className="bg-grey py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+            <h2 className="text-3xl font-extrabold tracking-tight  sm:text-4xl">
               Featured Products
             </h2>
-            <p className="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+            <p className="mt-4 max-w-2xl text-xl  mx-auto">
               Check out our most popular items this season.
             </p>
           </div>
@@ -97,7 +97,7 @@ export default function HomePage() {
               ))
             ) : (
               <div className="col-span-4 text-center py-12">
-                <p className="text-gray-500">No featured products available.</p>
+                <p className="text-gray-650">No featured products available.</p>
               </div>
             )}
           </div>
@@ -113,13 +113,13 @@ export default function HomePage() {
       </div>
 
       {/* Categories */}
-      <div id="categories" className="bg-white py-12">
+      <div id="categories" className="bg-grey py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+            <h2 className="text-3xl font-extrabold tracking-tight  sm:text-4xl">
               Shop by Category
             </h2>
-            <p className="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+            <p className="mt-4 max-w-2xl text-xl  mx-auto">
               Browse our wide selection of products by category.
             </p>
           </div>
@@ -164,7 +164,7 @@ export default function HomePage() {
                   </Button>
                 </Link>
                 <Link href="/about/sale">
-                  <Button variant="outline" className="border-2 border-white text-white hover:bg-white/10 font-medium">
+                  <Button variant="outline" className="border-2 border-white text-gray-500 hover:bg-white/10 font-medium">
                     View Details
                   </Button>
                 </Link>
@@ -206,19 +206,19 @@ export default function HomePage() {
       </div>
 
       {/* Testimonials */}
-      <div className="bg-white py-12">
+      <div className="bg-grey py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+            <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
               What Our Customers Say
             </h2>
-            <p className="mt-4 max-w-2xl text-xl text-gray-500 mx-auto">
+            <p className="mt-4 max-w-2xl text-xl mx-auto">
               Don't just take our word for it. Read reviews from our satisfied customers.
             </p>
           </div>
 
           <div className="mt-12 grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-            <div className="bg-gray-50 rounded-lg p-6 shadow-sm">
+            <div className="bg-gray-300 rounded-lg p-6 shadow-sm">
               <div className="flex items-center mb-4">
                 <div className="flex-shrink-0">
                   <svg className="h-10 w-10 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -236,12 +236,12 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
-              <p className="text-gray-600">
+              <p className="text-gray-900">
                 "I absolutely love this store! The products are high quality and the shipping was faster than expected. Customer service was also excellent when I had a question about my order."
               </p>
             </div>
 
-            <div className="bg-gray-50 rounded-lg p-6 shadow-sm">
+            <div className="bg-gray-300 rounded-lg p-6 shadow-sm">
               <div className="flex items-center mb-4">
                 <div className="flex-shrink-0">
                   <svg className="h-10 w-10 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -262,12 +262,12 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
-              <p className="text-gray-600">
+              <p className="text-gray-900">
                 "The premium smartwatch I purchased exceeded my expectations. The battery life is incredible and the fitness tracking features are spot on. Would definitely recommend to friends."
               </p>
             </div>
 
-            <div className="bg-gray-50 rounded-lg p-6 shadow-sm">
+            <div className="bg-gray-300 rounded-lg p-6 shadow-sm">
               <div className="flex items-center mb-4">
                 <div className="flex-shrink-0">
                   <svg className="h-10 w-10 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -285,7 +285,7 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
-              <p className="text-gray-600">
+              <p className="text-gray-900">
                 "The checkout process was seamless and I received my order in just 2 days. The eco-friendly packaging was a nice touch too. Will definitely be shopping here again!"
               </p>
             </div>

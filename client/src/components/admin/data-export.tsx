@@ -30,7 +30,7 @@ export default function DataExport() {
               </div>
               <div>
                 <h3 className="font-medium">Data Configuration</h3>
-                <p className="text-sm text-gray-500">Configure database settings and connections</p>
+                <p className="text-sm text-gray-650">Configure database settings and connections</p>
               </div>
             </div>
             <Button className="w-full mt-4 bg-primary/10 hover:bg-primary/20 text-primary">
@@ -45,7 +45,7 @@ export default function DataExport() {
               </div>
               <div>
                 <h3 className="font-medium">Backup & Restore</h3>
-                <p className="text-sm text-gray-500">Schedule automatic backups of your shop data</p>
+                <p className="text-sm text-gray-650">Schedule automatic backups of your shop data</p>
               </div>
             </div>
             <Button className="w-full mt-4 bg-primary/10 hover:bg-primary/20 text-primary">
@@ -60,21 +60,21 @@ export default function DataExport() {
             <div className="flex items-center justify-between p-2 bg-gray-50 rounded">
               <div className="flex items-center">
                 <Clock className="h-4 w-4 mr-2 text-gray-500" />
-                <span>Daily database optimization</span>
+                <span className="text-gray-500">Daily database optimization</span>
               </div>
               <span className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">Active</span>
             </div>
             <div className="flex items-center justify-between p-2 bg-gray-50 rounded">
               <div className="flex items-center">
                 <Clock className="h-4 w-4 mr-2 text-gray-500" />
-                <span>Weekly full backup</span>
+                <span className="text-gray-500">Weekly full backup</span>
               </div>
               <span className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">Active</span>
             </div>
             <div className="flex items-center justify-between p-2 bg-gray-50 rounded">
               <div className="flex items-center">
                 <Clock className="h-4 w-4 mr-2 text-gray-500" />
-                <span>Monthly analytics report</span>
+                <span className="text-gray-500">Monthly analytics report</span>
               </div>
               <span className="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded">Pending</span>
             </div>

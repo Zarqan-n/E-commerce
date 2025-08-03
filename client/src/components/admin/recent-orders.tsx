@@ -14,9 +14,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import {
-  Badge,
-} from "@/components/ui/badge";
+import { Badge } from "@/components/ui/badge";
 import { Skeleton } from "@/components/ui/skeleton";
 import { ArrowRightIcon } from "lucide-react";
 import { Link } from "wouter";
@@ -26,20 +24,26 @@ export default function RecentOrders() {
     queryKey: ["/api/analytics/recent-orders"],
   });
 
-  const getStatusBadge = (status: string) => {
+  const getStatusBadge = (status?: string) => {
     const statusColors: Record<string, string> = {
-      'delivered': 'bg-green-100 text-green-800',
-      'shipped': 'bg-yellow-100 text-yellow-800',
-      'processing': 'bg-purple-100 text-purple-800',
-      'pending': 'bg-blue-100 text-blue-800',
-      'cancelled': 'bg-red-100 text-red-800'
+      delivered: "bg-green-100 text-green-800",
+      shipped: "bg-yellow-100 text-yellow-800",
+      processing: "bg-purple-100 text-purple-800",
+      pending: "bg-blue-100 text-blue-800",
+      cancelled: "bg-red-100 text-red-800",
     };
 
-    return (
-      <Badge className={`${statusColors[status.toLowerCase()] || 'bg-gray-100 text-gray-800'} border-none`}>
-        {status.charAt(0).toUpperCase() + status.slice(1)}
-      </Badge>
-    );
+    const normalizedStatus = status?.toLowerCase();
+    const badgeClass =
+      normalizedStatus && statusColors[normalizedStatus]
+        ? statusColors[normalizedStatus]
+        : "bg-gray-100 text-gray-800";
+
+    const label = status
+      ? status.charAt(0).toUpperCase() + status.slice(1)
+      : "Unknown";
+
+    return <Badge className={`${badgeClass} border-none`}>{label}</Badge>;
   };
 
   if (isLoading) {
@@ -100,7 +104,9 @@ export default function RecentOrders() {
             <TableBody>
               {orders.map((order) => (
                 <TableRow key={order.id}>
-                  <TableCell className="font-medium">#{order.id.toString().padStart(4, '0')}</TableCell>
+                  <TableCell className="font-medium">
+                    #{order.id.toString().padStart(4, "0")}
+                  </TableCell>
                   <TableCell>{order.userId}</TableCell>
                   <TableCell>${order.total.toFixed(2)}</TableCell>
                   <TableCell>{getStatusBadge(order.status)}</TableCell>

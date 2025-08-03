@@ -115,7 +115,7 @@ export default function SalesChart() {
                   formatter={(value) => [`$${value.toLocaleString()}`, "Revenue"]} 
                   labelFormatter={(label) => `Month: ${label}`}
                 />
-                <Bar dataKey="revenue" fill="hsl(var(--chart-1))" radius={[4, 4, 0, 0]} />
+                <Bar dataKey="revenue" fill="gray" radius={[4, 4, 0, 0]} />
               </BarChart>
             ) : period === "weekly" ? (
               <LineChart data={chartData}>
@@ -137,7 +137,7 @@ export default function SalesChart() {
                 <Line 
                   type="monotone" 
                   dataKey="revenue" 
-                  stroke="hsl(var(--chart-2))" 
+                  stroke="green" 
                   strokeWidth={2} 
                   dot={{ r: 4 }} 
                   activeDot={{ r: 6 }} 
@@ -163,9 +163,10 @@ export default function SalesChart() {
                 <Area 
                   type="monotone" 
                   dataKey="revenue" 
-                  stroke="hsl(var(--chart-3))" 
-                  fill="hsl(var(--chart-3))" 
-                  fillOpacity={0.2} 
+                  strokeWidth={2}
+                  stroke="green" 
+                  fill="grey" 
+                  fillOpacity={0.3} 
                 />
               </AreaChart>
             )}

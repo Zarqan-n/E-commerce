@@ -29,7 +29,7 @@ export default function PaymentMethods() {
       method: "UPI Payments",
       description: "Google Pay, PhonePe, Paytm",
       icon: Smartphone,
-      iconBgColor: "bg-secondary",
+      iconBgColor: "bg-primary",
       amount: "$7,865.20",
       percentage: 28,
       growth: "+23.7%",
@@ -38,7 +38,7 @@ export default function PaymentMethods() {
       method: "Digital Wallets",
       description: "PayPal, Apple Pay, etc.",
       icon: Wallet,
-      iconBgColor: "bg-accent",
+      iconBgColor: "bg-primary",
       amount: "$2,416.95",
       percentage: 7,
       growth: "+5.2%",
@@ -69,7 +69,7 @@ export default function PaymentMethods() {
                   <stat.icon className={`h-5 w-5 ${stat.iconBgColor} bg-opacity-100`} />
                 </div>
                 <div>
-                  <h4 className="text-base font-medium text-gray-900">{stat.method}</h4>
+                  <h4 className="text-base font-medium text-gray-650">{stat.method}</h4>
                   <p className="text-sm text-gray-500">{stat.description}</p>
                 </div>
               </div>
